@@ -22,9 +22,9 @@ app.get('/', function (req, res) {
 app.get('/hello', function(req, res){
   res.json({greetings: "Hello, API"});
 });
-app.post('/api/fileanalyse', upload.single('file'), (req, res) => {
+app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
   res.send({
-    size: req.file.size
+    size: req.upfile[0].size
   })
 })
 
