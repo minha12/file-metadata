@@ -22,14 +22,16 @@ app.get('/', function (req, res) {
 app.get('/hello', function(req, res){
   res.json({greetings: "Hello, API"});
 });
+//////////////////////My App////////////////////////////////
 app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
   console.log(req.file)
   res.send({
-    filename: req.file.
+    filename: req.file.originalname,
+    type: req.file.mimetype,
     size: req.file.size
   })
 })
-
+////////////////////////////////////////////////////////////
 app.listen(process.env.PORT || 3000, function () {
   console.log('Node.js listening ...');
 });
