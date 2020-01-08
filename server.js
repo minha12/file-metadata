@@ -23,8 +23,10 @@ app.get('/hello', function(req, res){
   res.json({greetings: "Hello, API"});
 });
 app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
+  console.log(req.file)
   res.send({
-    size: req.upfile[0].size
+    filename: req.file.
+    size: req.file.size
   })
 })
 
