@@ -1,13 +1,55 @@
+# File Metadata Microservice
 
-# API Project: File Metadata Microservice for freeCodeCamp
+A microservice that analyzes uploaded files and returns metadata information.
 
-###    User stories:
-1. I can submit a form that includes a file upload.
-2. The form file input field  has the "name" attribute set to "upfile". We rely on this in testing.
-3. When I submit something, I will receive the file name and size in bytes within the JSON response
+## API Documentation
 
-### Usage :
-* Go to the main page, and upload a file using the provided form.
+### POST /api/fileanalyse
 
-### Hint:
-* To handle the file uploading you should use the [multer](https://www.npmjs.com/package/multer) npm package.
+Analyzes an uploaded file and returns its metadata.
+
+#### Request
+- Content-Type: `multipart/form-data`
+- Form field name: `upfile`
+
+#### Response
+```json
+{
+  "name": "example.txt",
+  "type": "text/plain",
+  "size": 1234
+}
+```
+
+#### Error Response
+```json
+{
+  "error": "Please upload a file"
+}
+```
+
+## Technology Stack
+- Node.js
+- Express
+- Multer (for file upload handling)
+
+## Local Development
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the server:
+```bash
+npm start
+```
+
+3. Visit `http://localhost:3000` in your browser
+
+## Dependencies
+- express: ^4.x.x
+- multer: ^1.x.x
+- cors: ^2.x.x
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
